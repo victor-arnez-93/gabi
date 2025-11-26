@@ -362,3 +362,12 @@ body {
 
 /* CAPÍTULO 7 — branco */
 #cap7 { color: #ffffff; }
+
+
+/* CAPÍTULOS QUE DEVEM SER PRETOS */
+#cap2,
+#cap5,
+#cap6,
+#cap7 {
+    color: #000000 !important;
+}
