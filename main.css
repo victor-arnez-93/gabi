@@ -233,3 +233,19 @@ body {
         font-size: 1.55rem;
     }
 }
+.video-intimo {
+    width: 70%;
+    max-width: 420px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+}
+
+/* quando entrar na tela */
+.show .video-intimo {
+    opacity: 1;
+    transform: translateY(0);
+}
