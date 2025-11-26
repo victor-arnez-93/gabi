@@ -1,0 +1,218 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.7em;
+}
+
+/* ================================
+   CAPA
+================================ */
+.capa {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* corrige a digitação */
+    justify-content: center;
+    align-items: center;
+    padding-top: 14vh; /* abre espaço para o texto aparecer */
+}
+
+.capa .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+}
+
+/* TÍTULO COM DIGITAÇÃO */
+#tituloDigitado {
+    font-family: 'Parisienne', cursive;
+    font-size: 10vw;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid rgba(255,255,255,0.7);
+    color: white;
+    text-shadow: 0 0 18px rgba(0,0,0,0.8);
+    width: 0;
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+/* SETA PULANDO */
+.seta {
+    font-size: 3.3rem;
+    color: white;
+    position: absolute;
+    bottom: 40px;
+    cursor: pointer;
+    animation: pular 1.3s infinite;
+    text-shadow: 0 0 12px rgba(0,0,0,0.8);
+}
+
+@keyframes pular {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+/* ================================
+   CAPÍTULOS
+================================ */
+.capitulo {
+    padding: 10vh 8vw;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* CARD DE TEXTO */
+.bloco {
+    padding: 20px 24px;
+    background: rgba(0,0,0,0.40);
+    border-radius: 16px;
+    backdrop-filter: blur(2px);
+    max-width: 680px;
+    margin: auto;
+}
+
+/* TEXTO DOS PARÁGRAFOS */
+.bloco p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.55em;
+    text-align: justify;
+    color: #f2f2f2;
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+}
+
+/* ================================
+   FOTOS ÍNTIMAS
+================================ */
+.foto-intima {
+    padding: 8vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+}
+
+.foto-intima img {
+    width: 58%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 22px rgba(0,0,0,0.7);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+}
+
+.legenda {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.3rem;
+    color: #f3e6da;
+    margin-top: 10px;
+    text-shadow: 0 0 12px rgba(0,0,0,0.6);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+}
+
+/* ================================
+   FINAL
+================================ */
+.final {
+    padding: 60px 20px;
+    text-align: center;
+    background: black;
+}
+
+.final .maos {
+    width: 60%;
+    max-width: 300px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final p {
+    font-family: 'Parisienne', cursive;
+    font-size: 1.8rem;
+    color: #f0e4dc;
+    text-shadow: 0 0 15px rgba(0,0,0,0.8);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+}
+
+/* ================================
+   ANIMAÇÃO SCROLL
+================================ */
+.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+@media (max-width: 900px) {
+    .bloco p {
+        font-size: 1.03rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    #tituloDigitado {
+        font-size: 13vw;
+    }
+
+    .bloco {
+        padding: 16px 18px;
+    }
+
+    .bloco p {
+        font-size: 0.98rem;
+        line-height: 1.45em;
+    }
+
+    .foto-intima img {
+        width: 75%;
+        max-width: 280px;
+    }
+
+    .legenda {
+        font-size: 1.2rem;
+    }
+
+    .final .maos {
+        width: 75%;
+    }
+
+    .final p {
+        font-size: 1.6rem;
+    }
+}
