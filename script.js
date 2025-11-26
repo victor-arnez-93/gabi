@@ -1,56 +1,53 @@
-// Aguarda todo o DOM carregar antes de rodar
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ================================
-       ANIMAÇÃO DE ESCRITA NO TÍTULO
-    ================================= */
-    const titulo = "Eu preciso te dizer...";
-    const h1 = document.getElementById("tituloDigitado");
-    let i = 0;
-
-    function typeWriter() {
-        if (i < titulo.length) {
-            h1.textContent += titulo.charAt(i);
-            i++;
-            setTimeout(typeWriter, 90); // velocidade suave e emocional
-        } else {
-            h1.style.borderRight = "none"; // remove cursor
-        }
-    }
-
-    typeWriter();
-
-
-    /* ================================
-       SETA — SCROLL SUAVE
+       ELEMENTOS
     ================================= */
     const seta = document.getElementById("setaScroll");
-seta.addEventListener("click", () => {
-
-    // ROLAR
-    window.scrollTo({
-        top: window.innerHeight * 1.0,
-        behavior: "smooth"
-    });
-
-    // TOCAR MÚSICA
+    const toque = document.getElementById("toqueParaComecar");
     const musica = document.getElementById("musicaFundo");
-    musica.volume = 0.35;   // volume agradável
-    musica.play().catch(() => {}); // evita erro no mobile
-});
 
+    /* ================================
+       FUNÇÃO — INICIAR MÚSICA + SCROLL
+    ================================= */
+    function iniciar() {
+
+        // COMEÇAR MÚSICA COM FADE-IN
+        musica.volume = 0;
+        musica.play().catch(() => {});
+
+        let vol = 0;
+        const fade = setInterval(() => {
+            if (vol < 0.35) {
+                vol += 0.01;
+                musica.volume = vol;
+            } else {
+                clearInterval(fade);
+            }
+        }, 150);
+
+        // ROLAGEM SUAVE
+        window.scrollTo({
+            top: window.innerHeight * 1.0,
+            behavior: "smooth"
+        });
+    }
+
+    // CLIQUES
+    seta.addEventListener("click", iniciar);
+    toque.addEventListener("click", iniciar);
 
 
     /* ================================
-       ANIMAÇÃO DE APARECER AO ROLAR
+       ANIMAÇÃO SCROLL
     ================================= */
+
     const elementos = document.querySelectorAll(
         ".bloco p, .foto-intima img, .legenda, .final .maos, .final p"
     );
 
     function aparecer() {
 
-        // limite ajustado para pegar até o final da página
         const limite = window.innerHeight * 1.15;
 
         elementos.forEach(el => {
@@ -62,10 +59,8 @@ seta.addEventListener("click", () => {
         });
     }
 
-    // Executa no carregamento
+    // chamar no carregamento
     aparecer();
-
-    // Executa ao rolar a página
     window.addEventListener("scroll", aparecer);
 
 });

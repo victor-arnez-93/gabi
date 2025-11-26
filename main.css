@@ -22,10 +22,10 @@ body {
     background-position: center;
     position: relative;
     display: flex;
-    flex-direction: column; /* corrige a digitação */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 14vh; /* abre espaço para o texto aparecer */
+    padding-top: 14vh;
 }
 
 .capa .overlay {
@@ -35,32 +35,48 @@ body {
     background: rgba(0,0,0,0.55);
 }
 
-/* TÍTULO COM DIGITAÇÃO */
-#tituloDigitado {
+/* TÍTULO SUAVE */
+#tituloSuave {
     font-family: 'Parisienne', cursive;
     font-size: 10vw;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid rgba(255,255,255,0.7);
     color: white;
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards;
     text-shadow: 0 0 18px rgba(0,0,0,0.8);
-    width: 0;
-    max-width: 90%;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    z-index: 5;
+    margin-bottom: 25px;
+}
+
+/* ANIMAÇÃO SUAVE */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* “TOQUE AQUI PARA COMEÇAR” */
+#toqueParaComecar {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    opacity: 0.85;
+    margin-bottom: 10px;
+    cursor: pointer;
+    animation: pulsar 1.6s infinite ease-in-out;
+}
+
+@keyframes pulsar {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
 }
 
 /* SETA PULANDO */
 .seta {
-    font-size: 3.3rem;
+    font-size: 3.8rem;
     color: white;
-    position: absolute;
-    bottom: 40px;
     cursor: pointer;
     animation: pular 1.3s infinite;
     text-shadow: 0 0 12px rgba(0,0,0,0.8);
+    margin-top: 5px;
 }
 
 @keyframes pular {
@@ -89,16 +105,16 @@ body {
     margin: auto;
 }
 
-/* TEXTO DOS PARÁGRAFOS */
+/* PARÁGRAFOS */
 .bloco p {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.03rem;
     line-height: 1.55em;
     text-align: justify;
     color: #f2f2f2;
     margin-bottom: 22px;
+
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
     transition: 1.2s ease;
 }
 
@@ -110,28 +126,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #000;
 }
 
 .foto-intima img {
     width: 58%;
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 22px rgba(0,0,0,0.7);
+    max-width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.55);
+
     opacity: 0;
-    transform: translateY(30px);
-    transition: 1.2s ease;
+    transform: translateY(25px);
+    transition: 1.25s ease;
 }
 
 .legenda {
     font-family: 'Satisfy', cursive;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #f3e6da;
     margin-top: 10px;
-    text-shadow: 0 0 12px rgba(0,0,0,0.6);
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
     transition: 1.2s ease;
+    text-shadow: 0 0 12px rgba(0,0,0,0.6);
 }
 
 /* ================================
@@ -140,30 +156,26 @@ body {
 .final {
     padding: 60px 20px;
     text-align: center;
-    background: black;
 }
 
 .final .maos {
-    width: 60%;
+    width: 62%;
     max-width: 300px;
     border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
     margin-bottom: 25px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
     transition: 1.2s ease;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .final p {
     font-family: 'Parisienne', cursive;
     font-size: 1.8rem;
     color: #f0e4dc;
-    text-shadow: 0 0 15px rgba(0,0,0,0.8);
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
     transition: 1.2s ease;
 }
 
@@ -180,14 +192,19 @@ body {
 ================================ */
 @media (max-width: 900px) {
     .bloco p {
-        font-size: 1.03rem;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 600px) {
 
-    #tituloDigitado {
+    #tituloSuave {
         font-size: 13vw;
+    }
+
+    #toqueParaComecar {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
     }
 
     .bloco {
@@ -195,17 +212,17 @@ body {
     }
 
     .bloco p {
-        font-size: 0.98rem;
+        font-size: 0.97rem;
         line-height: 1.45em;
     }
 
     .foto-intima img {
         width: 75%;
-        max-width: 280px;
+        max-width: 260px;
     }
 
     .legenda {
-        font-size: 1.2rem;
+        font-size: 1.18rem;
     }
 
     .final .maos {
@@ -213,6 +230,6 @@ body {
     }
 
     .final p {
-        font-size: 1.6rem;
+        font-size: 1.55rem;
     }
 }
