@@ -371,3 +371,11 @@ body {
 #cap7 {
     color: #000000 !important;
 }
+/* LEGENDA DO VÍDEO — MANROPE */
+.video-intimo + .legenda {
+    font-family: 'Manrope', sans-serif !important;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    text-transform: none;
+}
