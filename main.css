@@ -280,3 +280,45 @@ body {
         font-size: 1.7rem;
     }
 }
+/* SUBTÍTULO DEPOIS DA CAPA */
+#subtituloSecao {
+    width: 100%;
+    text-align: center;
+    padding: 90px 20px 40px 20px;
+    background: #000;
+}
+
+#subtituloSecao p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2.1rem;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(0,0,0,0.5);
+    margin: 5px 0;
+}
+
+/* animação suave ao aparecer */
+#subtituloSecao {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1.3s ease;
+}
+
+#subtituloSecao.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.video-intimo {
+    width: 80%;
+    max-width: 420px;
+    border-radius: 12px;
+    display: block;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.2s ease;
+}
+
+.video-intimo.show {
+    opacity: 1;
+    transform: translateY(0);
+}

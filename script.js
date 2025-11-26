@@ -38,13 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
     toque.addEventListener("click", iniciar);
 
 
-// Mostrar subtítulo depois do clique
+// Mostrar subtítulo após clique
+const subtituloSecao = document.getElementById("subtituloSecao");
+
 document.getElementById("toqueParaComecar").addEventListener("click", () => {
-    document.getElementById("subtituloInicial").classList.add("show");
+    subtituloSecao.classList.add("show");
 });
+
 document.getElementById("setaScroll").addEventListener("click", () => {
-    document.getElementById("subtituloInicial").classList.add("show");
+    subtituloSecao.classList.add("show");
 });
+
+
+// animação para o vídeo
+const videos = document.querySelectorAll(".video-intimo");
+
+function animarVideos() {
+    videos.forEach(v => {
+        const topo = v.getBoundingClientRect().top;
+        if (topo < window.innerHeight * 0.85) {
+            v.classList.add("show");
+        }
+    });
+}
+
+window.addEventListener("scroll", animarVideos);
+window.addEventListener("load", animarVideos);
+
 
 
     /* ================================
