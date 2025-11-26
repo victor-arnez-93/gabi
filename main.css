@@ -252,3 +252,31 @@ body {
 .legenda {
     text-align: center;
 }
+/* SUBTÍTULO INICIAL (frase dupla) */
+#subtituloInicial {
+    position: absolute;
+    bottom: -120px; /* deixa mais abaixo para não poluir a capa */
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: 1.6s ease;
+    font-family: 'Manrope', sans-serif; /* mesma fonte do texto */
+}
+
+#subtituloInicial.show {
+    opacity: 1;
+    transform: translateY(15px);
+}
+
+#subtituloInicial p {
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.6);
+    margin: 4px 0;
+}
+
+@media(max-width: 600px) {
+    #subtituloInicial p {
+        font-size: 1.7rem;
+    }
+}

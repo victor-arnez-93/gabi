@@ -38,6 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
     toque.addEventListener("click", iniciar);
 
 
+// Mostrar subtítulo depois do clique
+document.getElementById("toqueParaComecar").addEventListener("click", () => {
+    document.getElementById("subtituloInicial").classList.add("show");
+});
+document.getElementById("setaScroll").addEventListener("click", () => {
+    document.getElementById("subtituloInicial").classList.add("show");
+});
+
+
     /* ================================
        ANIMAÇÃO SCROLL
     ================================= */
