@@ -16,14 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
         musica.volume = 0;
         musica.play().catch(() => {});
 
-        // LOOP PROFISSIONAL — SEM PAUSA, SEM GAP
-        musica.addEventListener("timeupdate", function () {
-            const buffer = 0.35; // quanto antes reiniciar (ajusta a suavidade)
-            if (this.currentTime > this.duration - buffer) {
-                this.currentTime = 0.05; // reinicia antes do final real
-                this.play();
-            }
-        });
+musica.addEventListener("timeupdate", function () {
+    // margem menor para loops curtos e cortes manuais
+    const margem = 0.35; // ajuste fino para eliminar o “corte seco”
+
+    if (this.currentTime >= this.duration - margem) {
+        const continuar = this.currentTime - (this.duration - margem);
+        this.currentTime = continuar;
+        this.play();
+    }
+});
+
 
         let vol = 0;
         const fade = setInterval(() => {

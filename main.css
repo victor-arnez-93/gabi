@@ -448,3 +448,11 @@ body {
 #cap5 {
     color: #ffffff !important;
 }
+/* Ajuste de espaçamento dos títulos só no MOBILE */
+@media (max-width: 600px) {
+    .capitulo-titulo {
+        margin-top: 45px !important;
+        margin-bottom: 45px !important;
+        line-height: 1.25em;
+    }
+}
