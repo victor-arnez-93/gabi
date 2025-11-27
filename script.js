@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
         musica.volume = 0;
         musica.play().catch(() => {});
 
+        // SUAVIZAR LOOP DA MÚSICA — QUASE PERFEITO
+        musica.addEventListener("timeupdate", function () {
+            if (this.currentTime > this.duration - 0.25) {
+                this.currentTime = 0.01;
+                this.play();
+            }
+        });
+
         let vol = 0;
         const fade = setInterval(() => {
             if (vol < 0.35) {
@@ -36,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // CLIQUES
     seta.addEventListener("click", iniciar);
     toque.addEventListener("click", iniciar);
-
 
 // Mostrar subtítulo após clique
 const subtituloSecao = document.getElementById("subtituloSecao");
