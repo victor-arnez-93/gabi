@@ -93,3 +93,15 @@ window.addEventListener("load", animarVideos);
     window.addEventListener("scroll", aparecer);
 
 });
+
+/* CARD INTRO – FECHAR AO CLICAR */
+const cardIntro = document.getElementById("cardIntro");
+const btnComecar = document.getElementById("btnComecar");
+
+btnComecar.addEventListener("click", () => {
+    cardIntro.style.opacity = "0";
+    cardIntro.style.transition = "0.8s ease";
+    setTimeout(() => {
+        cardIntro.style.display = "none";
+    }, 800);
+});
