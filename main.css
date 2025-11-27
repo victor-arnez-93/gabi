@@ -398,15 +398,21 @@ body {
 }
 
 .cardConteudo {
-    background: rgba(255,255,255,0.1);
-    border: 2px solid rgba(255,255,255,0.25);
-    border-radius: 22px;
-    padding: 35px 28px;
-    max-width: 420px;
-    text-align: center;
+    padding: 40px 30px;
+    background: rgba(0,0,0,0.55);
+    border-radius: 18px;
     backdrop-filter: blur(6px);
-    box-shadow: 0 0 25px rgba(255,255,255,0.07);
+    width: 90%;
+    max-width: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* AQUI CENTRALIZA TUDO */
+    text-align: center;
+    gap: 25px;
 }
+
 
 .introTexto {
     font-family: 'Manrope', sans-serif;
