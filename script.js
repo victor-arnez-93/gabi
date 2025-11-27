@@ -16,10 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
         musica.volume = 0;
         musica.play().catch(() => {});
 
-        // SUAVIZAR LOOP DA MÚSICA — QUASE PERFEITO
+        // LOOP PROFISSIONAL — SEM PAUSA, SEM GAP
         musica.addEventListener("timeupdate", function () {
-            if (this.currentTime > this.duration - 0.25) {
-                this.currentTime = 0.01;
+            const buffer = 0.35; // quanto antes reiniciar (ajusta a suavidade)
+            if (this.currentTime > this.duration - buffer) {
+                this.currentTime = 0.05; // reinicia antes do final real
                 this.play();
             }
         });
